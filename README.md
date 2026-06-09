@@ -1,8 +1,8 @@
-**TRAVEL PROJECT**
+**TRAVEL WEB PAGE**
 
 ![Project Preview](Travel%20interface.png)
 
-**Travel Project** 
+**Travel web page** 
 
 ​ A responsive web project developed as part of the DecodeLabs Internship program. This project focuses on creating an engaging and user-friendly interface for travelers to explore destinations.
 
