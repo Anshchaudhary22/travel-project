@@ -1,3 +1,6 @@
+**TRAVEL PROJECT**
+![Project Preview](Travel%20interface.png)
+
 **Travel Project**
 ​A responsive web project developed as part of the DecodeLabs Internship program. This project focuses on creating an engaging and user-friendly interface for travelers to explore destinations.
 
@@ -21,5 +24,5 @@ script.js     # JavaScript for interactivity
 
 ​This project was developed during my internship at DecodeLabs, aiming to improve my front-end development skills and create a realistic travel-themed application.
 
-![Project Preview](Travel%20interface.png)
+
 
