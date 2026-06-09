@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Explorer</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#f5f7fa;
+}
+
+header{
+background:#0f172a;
+color:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-size:16px;
+}
+
+.hero{
+height:80vh;
+background:
+linear-gradient(rgba(0,0,0,.5),
+rgba(0,0,0,.5)),
+url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');
+background-size:cover;
+background-position:center;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+}
+
+.hero h1{
+font-size:60px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:20px;
+margin-bottom:20px;
+}
+
+.hero input{
+width:320px;
+padding:14px;
+border:none;
+border-radius:8px;
+font-size:16px;
+}
+
+.section-title{
+text-align:center;
+margin-top:50px;
+font-size:35px;
+color:#0f172a;
+}
+
+.packages{
+padding:50px;
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 4px 15px rgba(0,0,0,.15);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.card h3{
+padding:10px;
+}
+
+.card p{
+padding:0 10px;
+}
+
+.card h4{
+padding:10px;
+color:#0ea5e9;
+}
+
+.card button{
+margin:10px;
+padding:12px 20px;
+border:none;
+background:#0ea5e9;
+color:white;
+cursor:pointer;
+border-radius:6px;
+}
+
+.booking{
+background:white;
+padding:50px;
+margin-top:30px;
+}
+
+.booking h2{
+text-align:center;
+margin-bottom:30px;
+}
+
+form{
+max-width:500px;
+margin:auto;
+display:flex;
+flex-direction:column;
+}
+
+form input{
+padding:14px;
+margin-bottom:15px;
+border:1px solid #ddd;
+border-radius:8px;
+}
+
+form button{
+padding:14px;
+border:none;
+background:#22c55e;
+color:white;
+font-size:16px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.success-box{
+display:none;
+max-width:500px;
+margin:30px auto;
+background:white;
+padding:30px;
+text-align:center;
+border-radius:15px;
+box-shadow:0 4px 20px rgba(0,0,0,.15);
+}
+
+.tick{
+width:100px;
+height:100px;
+background:#22c55e;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+font-size:50px;
+margin:auto;
+margin-bottom:20px;
+}
+
+footer{
+background:#0f172a;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:50px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:38px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+header{
+flex-direction:column;
+}
+
+nav{
+margin-top:10px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">Travel Explorer</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Packages</a>
+<a href="#">Booking</a>
+<a href="#">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+
+<h1>Explore The World</h1>
+
+<p>Book Amazing Travel Packages At Best Prices</p>
+
+<input
+type="text"
+id="searchBox"
+placeholder="Search Destination..."
+onkeyup="searchLocation()">
+
+</section>
+
+<h2 class="section-title">Popular Destinations</h2>
+
+<section class="packages" id="packageContainer">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2">
+<h3>Goa</h3>
+<p>3 Nights / 4 Days</p>
+<h4>₹15,999</h4>
+<button onclick="bookPackage('Goa')">Book Now</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b">
+<h3>Manali</h3>
+<p>4 Nights / 5 Days</p>
+<h4>₹18,999</h4>
+<button onclick="bookPackage('Manali')">Book Now</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1605640840605-14ac1855827b">
+<h3>Kashmir</h3>
+<p>5 Nights / 6 Days</p>
+<h4>₹24,999</h4>
+<button onclick="bookPackage('Kashmir')">Book Now</button>
+</div>
+
+<div class="card">
+    <img src="https://images.pexels.com/photos/3581364/pexels-photo-3581364.jpeg?auto=compress&cs=tinysrgb&w=1200">
+    <h3>Jaipur</h3>
+    <p>3 Nights / 4 Days</p>
+    <h4>₹12,999</h4>
+    <button onclick="bookPackage('Jaipur')">Book Now</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c">
+<h3>Dubai</h3>
+<p>5 Nights / 6 Days</p>
+<h4>₹49,999</h4>
+<button onclick="bookPackage('Dubai')">Book Now</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1527668752968-14dc70a27c95">
+<h3>Switzerland</h3>
+<p>7 Nights / 8 Days</p>
+<h4>₹1,19,999</h4>
+<button onclick="bookPackage('Switzerland')">Book Now</button>
+</div>
+
+</section>
+
+<section class="booking">
+
+<h2>Book Your Trip</h2>
+
+<form id="bookingForm">
+
+<input
+type="text"
+placeholder="Full Name"
+required>
+
+<input
+type="email"
+placeholder="Email Address"
+required>
+
+<input
+type="text"
+id="destination"
+placeholder="Destination"
+required>
+
+<button type="submit">
+Confirm Booking
+</button>
+
+</form>
+
+<div id="successBox" class="success-box">
+
+<div class="tick">✓</div>
+
+<h2>Your Booking Is Confirmed!</h2>
+
+<p>
+Thank you for choosing Travel Explorer.
+Have a safe and wonderful journey.
+</p>
+
+</div>
+
+</section>
+
+<footer>
+© 2025 Travel Explorer | All Rights Reserved
+</footer>
+
+<script>
+
+function bookPackage(place)
+{
+document.getElementById("destination").value=place;
+
+window.scrollTo({
+top:document.body.scrollHeight,
+behavior:'smooth'
+});
+}
+
+function searchLocation()
+{
+let input=document
+.getElementById("searchBox")
+.value
+.toUpperCase();
+
+let cards=document
+.getElementsByClassName("card");
+
+for(let i=0;i<cards.length;i++)
+{
+let title=cards[i]
+.getElementsByTagName("h3")[0];
+
+if(title.innerHTML
+.toUpperCase()
+.indexOf(input)>-1)
+{
+cards[i].style.display="";
+}
+else
+{
+cards[i].style.display="none";
+}
+}
+}
+
+document
+.getElementById("bookingForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+document
+.getElementById("bookingForm")
+.style.display="none";
+
+document
+.getElementById("successBox")
+.style.display="block";
+
+});
+
+</script>
+
+</body>
+</html>
