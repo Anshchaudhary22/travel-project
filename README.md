@@ -21,4 +21,5 @@ script.js     # JavaScript for interactivity
 
 ​This project was developed during my internship at DecodeLabs, aiming to improve my front-end development skills and create a realistic travel-themed application.
 
+![Project Preview](Travel%20interface.png)
 
